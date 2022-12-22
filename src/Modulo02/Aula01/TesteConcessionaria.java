@@ -1,4 +1,4 @@
-package Modulo02;
+package Modulo02.Aula01;
 
 public class TesteConcessionaria {
     public static void main(String[] args) {
@@ -13,8 +13,16 @@ public class TesteConcessionaria {
         carro1.modelo = "XYZ";
         carro1.estiloDeCombustivel = "Combustivel";
         carro1.preco = 300_000;
+        carro1.velocidadeMaxima = 200;
 
-        //System.out.print(carro1);
+        carro1.obterVelocidadeMaxima();
+        carro1.ligar();
+        carro1.acelerar(210);
+        carro1.desacelerar(20);
+        carro1.parar();
+
+        System.out.println("");
+        //MOTO
 
         moto1.cilindrada = "321 cc";
         moto1.anoDeFabricaao = 2022;
@@ -26,7 +34,12 @@ public class TesteConcessionaria {
         moto1.automatica = true;
         moto1.doisLugares = true;
         moto1.modelo = "Super Sport";
-    
-        System.out.println(moto1);
+        moto1.velocidadeMaxima = 200;
+        moto1.velocidadeAtual = 0;
+
+        moto1.ligar();
+        moto1.acelerar(200);
+        moto1.desacelerar(100);
+        moto1.parar();
     }
 }
