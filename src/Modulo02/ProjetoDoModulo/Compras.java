@@ -1,10 +1,10 @@
 package Modulo02.ProjetoDoModulo;
 
-public class Compras {
-  public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.List;
 
-  }
+class Compras {
+
+  List<String> produtos = new ArrayList<String>();
+
 }
-
-
-// PROCURAR BUILDER PARA JAVA
