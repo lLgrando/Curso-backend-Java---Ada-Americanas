@@ -3,61 +3,49 @@ package Modulo02.ProjetoDoModulo;
 import java.util.Scanner;
 
 public class While {
+    static Scanner scanner = new Scanner(System.in);
+    static UsaCompras usaCompras = new UsaCompras();
+    static boolean whileValidador = true;
     public static void main(String[] args) throws InterruptedException {
+        execucao(args);
+    }
 
-        UsaCompras usaCompras = new UsaCompras();      
-        
-        Scanner scanner = new Scanner(System.in);
-
-        boolean whileValidador = true;
-
+    private static void execucao(String[] args) throws InterruptedException {
         while (whileValidador) {
-
-            apagarConsole();
+            UsaCompras.apagarConsole();
+            int menu;
 
             System.out.println("0 - Sair | 1 - Inserir produto | 2 - Ver produtos | 3 - Deletar produtos");
 
-            int menu = scanner.nextInt();
+            try {
+                menu = Integer.valueOf(scanner.next()).intValue();
+            } catch (Exception e) {
+                menu = -1;
+                execucao(args);
+            }
 
             switch (menu) {
                 case 0:
                     whileValidador = false;
                     break;
 
-                case 1:
-                    apagarConsole();
-                    System.out.println("Digite o produto");
-                    String produtoInserir = scanner.next();
-                    usaCompras.inserirProduto(produtoInserir);
+                case 1: //inserir produto
+                    UsaCompras.apagarConsole();
+                    usaCompras.inserirProduto();
                     break;
 
-                case 2:
-                    apagarConsole();
-                    System.out.println("Lista de produtos: \n");
+                case 2: //ver produtos cadastrados
+                    UsaCompras.apagarConsole();
                     usaCompras.verProdutos();
-
-                    System.out.println("\n\nDigite 'q' para voltar.");
-                    String sair = scanner.next();
-                    if(sair == "q") continue;
-
                     break;
 
-                case 3:
-                    apagarConsole();
-                    System.out.println("Digite o produto que deseja remover:");
-                    String produtoDeletar = scanner.next();
-                    apagarConsole();
-                    usaCompras.deletarProduto(produtoDeletar);
+                case 3: // apagar produtos cadastrados
+                    UsaCompras.apagarConsole();
+                    usaCompras.deletarProduto();
 
                 default:
                     break;
             }
         }
-        scanner.close();
-    }
-
-    public static void apagarConsole(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }
