@@ -9,4 +9,4 @@ class Compras {
   List<Integer> quantidade = new ArrayList<Integer>();
   List<Double> precos = new ArrayList<Double>();
 
-} 
+}
